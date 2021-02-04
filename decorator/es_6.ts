@@ -3,6 +3,16 @@ abstract class Drink {
     abstract cost(): number;
 }
 
+abstract class DrinkDecorate {
+    decorated;
+
+    constructor(decorated: Drink) {
+        this.decorated = decorated;
+    }
+
+    abstract cost(): number;
+}
+
 class Coffee extends Drink {
 
     cost() {
@@ -11,16 +21,8 @@ class Coffee extends Drink {
 
 }
 
-class CoffeeDecorate {
-    decorated;
 
-    constructor(decorated: Coffee) {
-        this.decorated = decorated;
-    }
-}
-
-
-class Milk extends CoffeeDecorate {
+class Milk extends DrinkDecorate {
 
     cost() {
         return this.decorated.cost() + 20;
@@ -28,7 +30,7 @@ class Milk extends CoffeeDecorate {
 
 }
 
-class Chocolate extends CoffeeDecorate {
+class Chocolate extends DrinkDecorate {
 
     cost() {
         return this.decorated.cost() + 20;
