@@ -3,24 +3,10 @@ abstract class Animal {
     protected tail;
     protected weight;
 
-    constructor(data: { name: string; tail: number; weight: number }) {
-        this.name = data.name;
-        this.tail = data.tail;
-        this.weight = data.weight;
-    }
 }
 
-const catConfig = {
-    name: "Alisa",
-    tail: 1.65,
-    weight: 65
-}
+const level = 1;
 
-const dogConfig = {
-    name: "Rex",
-    tail: 1.00,
-    weight: 165
-}
 
 class Dog extends Animal {
 
@@ -39,15 +25,13 @@ class Cat extends Animal {
 }
 
 class AnimalFactory {
-    constructor(type, data) {
-        if (type === "dog")
-            return new Dog(data);
-        if (type === "cat")
-            return new Cat(data);
+    constructor() {
+        if (level === 1) return new Dog();
+        else return new Cat();
 
     }
 }
 
-const Idog = new AnimalFactory("dog", dogConfig);
+const Idog = new AnimalFactory();
 
 console.log(Idog);
