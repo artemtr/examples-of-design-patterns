@@ -1,7 +1,9 @@
 const level = 2;
 
 abstract class Animal {
+
     abstract doAction();
+
 }
 
 
